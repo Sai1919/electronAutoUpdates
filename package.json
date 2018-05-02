@@ -1,0 +1,82 @@
+{
+    "name": "autoupdatlesearning",
+    "version": "1.0.0",
+    "description": "Learning auto updates",
+    "main": "app.js",
+    "scripts": {
+      "start": "electron .",
+      "pack": "electron-builder --dir",
+      "dist": "build",
+      "publish": "build -p always"
+    },
+    "dependencies": {
+      "electron-updater": "2.21.8"
+    },
+    "devDependencies": {
+      "electron": "1.7.9",
+      "electron-builder": "19.47.1"
+    },
+    "build": {
+      "asar": true,
+      "productName": "autoupdatlesearning",
+      "electronVersion": "1.7.9",
+      "buildDependenciesFromSource": true,
+      "mac": {
+        "icon": "build/celigo.icns"
+      },
+      "dmg": {
+        "contents": [
+          {
+            "x": 110,
+            "y": 150
+          },
+          {
+            "x": 240,
+            "y": 150,
+            "type": "link",
+            "path": "/Applications"
+          }
+        ]
+      },
+      "linux": {
+        "target": [
+          "deb"
+        ],
+        "icon": "build",
+        "category": "Utility",
+        "desktop": {
+          "Icon": "128x128.png",
+          "Name": "agent",
+          "Comment": "This is product provided by Celigo to enable integration",
+          "Categories": "Utility"
+        }
+      },
+      "win": {
+        "asar": false,
+        "target": "nsis",
+        "publisherName": "Celigo",
+        "icon": "build/celigo.ico"
+      },
+      "nsis": {
+        "oneClick": false,
+        "installerIcon": "build/celigo.ico",
+        "uninstallerIcon": "build/celigo.ico",
+        "installerHeaderIcon": "build/celigo.ico",
+        "deleteAppDataOnUninstall": true,
+        "runAfterFinish": true
+      }
+    },
+    "author": "Sai Teja",
+    "standard": {
+      "globals": [
+        "describe",
+        "before",
+        "beforeEach",
+        "after",
+        "it",
+        "afterEach",
+        "test"
+      ]
+    }
+  }
+  
