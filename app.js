@@ -1,11 +1,11 @@
 var {app, BrowserWindow} = require('electron')
 var {autoUpdater} = require('electron-updater')
+var fs = require('fs')
 
 var configWindow = null
 
-autoUpdater.checkForUpdatesAndNotify()
-
 app.on('ready', () => {
+  autoUpdater.checkForUpdatesAndNotify()
   displayWindow()
 })
 
@@ -34,3 +34,25 @@ function displayWindow () {
     configWindow = null
   })
 }
+
+autoUpdater.on('checking-for-update', () => {
+  fs.appendFileSync('E:\\node\\electronAutoUpdates\\debug.txt', 'inside checkingForUpdate' + '\r\n')
+})
+autoUpdater.on('update-available', (info) => {
+  fs.appendFileSync('E:\\node\\electronAutoUpdates\\debug.txt', 'inside updateAvailable' + '\r\n')
+})
+autoUpdater.on('update-not-available', (info) => {
+  fs.appendFileSync('E:\\node\\electronAutoUpdates\\debug.txt', 'inside updateNotAvailable' + '\r\n')
+})
+autoUpdater.on('error', (err) => {
+  fs.appendFileSync('E:\\node\\electronAutoUpdates\\debug.txt', 'inside error=' + JSON.stringify(err) + '\r\n')
+  fs.appendFileSync('E:\\node\\electronAutoUpdates\\debug.txt', 'inside error=' + err.message + '\r\n')
+})
+autoUpdater.on('download-progress', (progressObj) => {
+  fs.appendFileSync('E:\\node\\electronAutoUpdates\\debug.txt', 'inside downloadProgress=' + JSON.stringify(progressObj) + '\r\n')
+})
+
+autoUpdater.on('update-downloaded', (info) => {
+  fs.appendFileSync('E:\\node\\electronAutoUpdates\\debug.txt', 'inside updateDownloaded' + '\r\n')
+  autoUpdater.quitAndInstall(true, true)
+})

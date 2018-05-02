@@ -1,6 +1,6 @@
 {
     "name": "autoupdatlesearning",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "Learning auto updates",
     "main": "app.js",
     "scripts": {
