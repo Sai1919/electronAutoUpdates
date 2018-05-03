@@ -5,3 +5,5 @@
 /server.log*
 /.vscode
 /dist
+/server.js
+/service.js

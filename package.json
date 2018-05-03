@@ -1,6 +1,6 @@
 {
     "name": "autoupdatlesearning",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Learning auto updates",
     "main": "app.js",
     "scripts": {
@@ -10,7 +10,9 @@
       "publish": "build -p always"
     },
     "dependencies": {
-      "electron-updater": "2.21.8"
+      "electron-updater": "2.21.8",
+      "node-windows": "0.1.14",
+      "express": "4.16.1"
     },
     "devDependencies": {
       "electron": "1.7.9",
