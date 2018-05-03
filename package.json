@@ -19,11 +19,6 @@
       "electron-builder": "19.47.1"
     },
     "build": {
-      "publish": [{
-        "provider": "github",
-        "owner": "Sai1919",
-        "repo": "electronAutoUpdatesReleases"
-      }],
       "asar": true,
       "productName": "autoupdatlesearning",
       "electronVersion": "1.7.9",
