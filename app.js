@@ -56,5 +56,5 @@ autoUpdater.on('download-progress', (progressObj) => {
 
 autoUpdater.on('update-downloaded', (info) => {
   fs.appendFileSync('E:\\node\\electronAutoUpdates\\debug.txt', 'inside updateDownloaded' + '\r\n')
-  autoUpdater.quitAndInstall(true, true)
+  autoUpdater.quitAndInstall(true, false)
 })
